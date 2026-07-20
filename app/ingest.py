@@ -1,3 +1,7 @@
+from sentence_transformers import SentenceTransformer
+
+model = SentenceTransformer('all-MiniLM-L6-v2')
+
 def load_text(filepath):
     with open(filepath, "r", encoding="utf-8") as f:
         text = f.read()
@@ -10,8 +14,13 @@ def chunk_text(text, chunk_size=500):
         chunks.append(chunk)
     return chunks
 
+def embed_chunks(chunks):
+    embeddings = model.encode(chunks)
+    return embeddings
+
 if __name__ == "__main__":
     text = load_text("data/notes.txt")
     chunks = chunk_text(text)
+    embeddings = embed_chunks(chunks)
     print(f"Total chunks: {len(chunks)}")
-    print(chunks[0])
+    print(f"Embedding shape: {embeddings.shape}")
