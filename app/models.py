@@ -28,6 +28,14 @@ def save_chunk(text, embedding):
     conn.commit()
     conn.close()
 
+def get_all_chunks():
+    conn = get_connection()
+    cursor = conn.cursor()
+    cursor.execute("SELECT id, text, embedding FROM chunks")
+    rows = cursor.fetchall()
+    conn.close()
+    return rows
+
 if __name__ == "__main__":
     create_table()
     print("Table created.")
