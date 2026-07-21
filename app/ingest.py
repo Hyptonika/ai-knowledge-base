@@ -1,4 +1,5 @@
 from sentence_transformers import SentenceTransformer
+from app.models import create_table, save_chunk
 
 model = SentenceTransformer('all-MiniLM-L6-v2')
 
@@ -19,8 +20,13 @@ def embed_chunks(chunks):
     return embeddings
 
 if __name__ == "__main__":
+    create_table()
+
     text = load_text("data/notes.txt")
     chunks = chunk_text(text)
     embeddings = embed_chunks(chunks)
-    print(f"Total chunks: {len(chunks)}")
-    print(f"Embedding shape: {embeddings.shape}")
+
+    for chunk, embedding in zip(chunks, embeddings):
+        save_chunk(chunk, embedding)
+
+    print(f"Saved {len(chunks)} chunks to the database.")
