@@ -4,14 +4,22 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
 <body>
-    <h1>Ask your knowledge base</h1>
-    <form method="POST">
-        <input type="text" name="query" value="{{ query }}" placeholder="Ask a question...">
-        <button type="submit">Search</button>
-    </form>
+    <div class="container">
+        <h1>Ask your knowledge base</h1>
 
-    {% for score, text in results %}
-    <p><strong>Source {{ loop.index }}</strong> (score: {{ "%.3f"|format(score) }})<br>{{ text }}</p>
-    {% endfor %}
+        <form method="POST">
+            <input type="text" name="query" value="{{ query }}" placeholder="Ask a question...">
+            <button type="submit">Search</button>
+        </form>
+
+        <form method="POST" action="/upload" enctype="multipart/form-data" style="margin-top: 20px;">
+            <input type="file" name="file" accept=".txt">
+            <button type="submit">Upload</button>
+        </form>
+
+        {% for score, text in results %}
+            <p><strong>Source {{ loop.index }}</strong> (score: {{ "%.3f"|format(score) }})<br>{{ text }}</p>
+        {% endfor %}
+    </div>
 </body>
 </html>

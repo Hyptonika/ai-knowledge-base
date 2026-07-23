@@ -1,7 +1,26 @@
-from flask import Flask, request, render_template
+from flask import Flask, request, render_template, redirect
 from app.search import search
+import os
+from app.ingest import load_text, chunk_text, embed_chunks
+from app.models import create_table, save_chunk
 
 app = Flask(__name__)
+
+@app.route("/upload", methods=["POST"])
+def upload():
+    file = request.files["file"]
+    if file and file.filename.endswith(".txt"):
+        filepath = os.path.join("data", file.filename)
+        file.save(filepath)
+
+        text = load_text(filepath)
+        chunks = chunk_text(text)
+        embeddings = embed_chunks(chunks)
+
+        for chunk, embedding in zip(chunks, embeddings):
+            save_chunk(chunk, embedding)
+
+    return redirect("/")
 
 @app.route("/", methods=["GET", "POST"])
 def home():
