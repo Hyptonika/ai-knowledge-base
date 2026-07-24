@@ -6,7 +6,7 @@ A semantic search app that lets you ask questions over your own notes/documents 
 
 ## What it does
 Upload notes or documents, ask questions in plain English, and receive the most relevant passages ranked by semantic similarity with AI-powered search.
-![Homepage](screenshots/homepage.png)
+![Homepage](screenshots/Homepage.png)
 
 ## How it works
 1. Documents are split into chunks
@@ -15,9 +15,9 @@ Upload notes or documents, ask questions in plain English, and receive the most 
 4. When you search, your query is embedded the same way and compared against all stored chunks using cosine similarity
 5. The most relevant chunks are returned, ranked by score
 
-![Uploading a document](screenshots/upload.png)
+![Uploading a document](screenshots/Upload.png)
 
-![Search results](screenshots/search-results.png)
+![Search results](screenshots/Search-results.png)
 
 ## Tech stack
 - Python, Flask
