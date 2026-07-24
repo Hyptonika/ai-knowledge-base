@@ -1,4 +1,6 @@
 flask
-sentence-transformers
 numpy
 gunicorn
+--extra-index-url https://download.pytorch.org/whl/cpu
+torch
+sentence-transformers
