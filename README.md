@@ -41,6 +41,6 @@ I built a small evaluation set of 5 question/answer pairs to test retrieval accu
 ## Running it locally
 \`\`\`bash
 pip install -r requirements.txt
-python -m app.ingest
+python -m core.ingest
 python app.py
 \`\`\`
