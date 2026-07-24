@@ -1,9 +1,12 @@
 # AI Knowledge Base
 
+**[Live Demo](https://ai-knowledge-base-ttz8.onrender.com/)**
+
 A semantic search app that lets you ask questions over your own notes/documents using AI embeddings — instead of keyword matching, it finds content based on meaning.
 
 ## What it does
 Upload notes or documents, ask questions in plain English, and receive the most relevant passages ranked by semantic similarity with AI-powered search.
+![Homepage](screenshots/homepage.png)
 
 ## How it works
 1. Documents are split into chunks
@@ -11,6 +14,10 @@ Upload notes or documents, ask questions in plain English, and receive the most 
 3. Embeddings are stored in a SQLite database
 4. When you search, your query is embedded the same way and compared against all stored chunks using cosine similarity
 5. The most relevant chunks are returned, ranked by score
+
+![Uploading a document](screenshots/upload.png)
+
+![Search results](screenshots/search-results.png)
 
 ## Tech stack
 - Python, Flask
