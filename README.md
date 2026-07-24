@@ -26,6 +26,11 @@ I wanted to learn how semantic search and AI retrieval systems work beyond simpl
 - Hybrid search (keyword + semantic)
 - Support for uploading multiple file types (PDF, markdown)
 
+## Evaluation
+I built a small evaluation set of 5 question/answer pairs to test retrieval accuracy. Running `python -m app.evaluate` checks whether the correct information appears in the top 2 retrieved chunks for each question.
+
+**Result: 100% accuracy (5/5)**
+
 ## Running it locally
 \`\`\`bash
 pip install -r requirements.txt
