@@ -1,5 +1,5 @@
 from sentence_transformers import SentenceTransformer
-from app.models import create_table, save_chunk
+from core.models import create_table, save_chunk
 
 model = SentenceTransformer('all-MiniLM-L6-v2')
 

@@ -1,6 +1,6 @@
 import numpy as np
-from app.models import get_all_chunks
-from app.ingest import model
+from core.models import get_all_chunks
+from core.ingest import model
 
 def bytes_to_embedding(blob):
     return np.frombuffer(blob, dtype=np.float32)

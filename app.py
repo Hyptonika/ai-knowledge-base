@@ -1,8 +1,7 @@
 from flask import Flask, request, render_template, redirect
-from app.search import search
-import os
-from app.ingest import load_text, chunk_text, embed_chunks
-from app.models import create_table, save_chunk
+from core.search import search
+from core.ingest import load_text, chunk_text, embed_chunks
+from core.models import create_table, save_chunk
 
 app = Flask(__name__)
 

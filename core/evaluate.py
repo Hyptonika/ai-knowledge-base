@@ -1,4 +1,4 @@
-from app.search import search
+from core.search import search
 from data.eval_set import eval_questions
 
 def run_evaluation():
