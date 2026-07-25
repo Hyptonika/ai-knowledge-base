@@ -44,3 +44,7 @@ pip install -r requirements.txt
 python -m core.ingest
 python app.py
 \`\`\`
+
+Author
+
+Built by Paul as part of a portfolio project.
